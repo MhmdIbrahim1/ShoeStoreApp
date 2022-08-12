@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="shoe_list_details"
+            type="com.sriyank.shoeapp.data.ShoeListData" />
+
+    </data>
+    <!--    Constraint layout is used because it is help me more to connect everything with each other easier  -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00BCD4"
+        tools:context=".UI.ShoeDetailsFragment">
+
+
+        <TextView
+            android:id="@+id/welcome_detail_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="63dp"
+            android:text="@string/add_new_shoe"
+            android:textColor="#3F51B5"
+            android:textColorHighlight="#3F51B5"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toTopOf="@+id/shoe_name_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/shoe_name_details"
+            android:layout_width="215dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="212dp"
+            android:ems="10"
+            android:hint="@string/shoe_name"
+            android:inputType="textPersonName"
+            android:text="@={shoe_list_details.shoeName}"
+            android:textColor="#3F51B5"
+            android:textColorHint="#3F51B5"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.081"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/shoe_size_details"
+            android:layout_width="215dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/shoe_size"
+            android:text="@={shoe_list_details.shoeSize}"
+            android:inputType="textPersonName"
+            android:textColor="#3F59B5"
+            android:textColorHint="#3F51B5"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.079"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shoe_name_details" />
+
+        <EditText
+            android:id="@+id/shoe_company_details"
+            android:layout_width="215dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/shoe_company"
+            android:text="@={shoe_list_details.shoeCompany}"
+            android:inputType="textPersonName"
+            android:textColor="#3F59B5"
+            android:textColorHint="#3F51B5"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.081"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shoe_size_details" />
+
+        <EditText
+            android:id="@+id/shoe_description_details"
+            android:layout_width="215dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/description"
+            android:text="@={shoe_list_details.shoeDescription}"
+            android:inputType="textPersonName"
+            android:textColor="#3F59B5"
+            android:textColorHint="#3F51B5"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.081"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shoe_company_details" />
+
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="500dp"
+            android:layout_marginEnd="28dp"
+            android:background="@drawable/buttun"
+            android:text="@string/save_btn"
+            android:windowSoftInputMode="adjustNothing"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.797" />
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="500dp"
+            android:background="@drawable/buttun"
+            android:text="@string/cancel_btn"
+            android:windowSoftInputMode="adjustNothing"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.797" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
