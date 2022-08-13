@@ -8,11 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.sriyank.shoeapp.R
 import com.sriyank.shoeapp.data.ShoeListData
-import com.sriyank.shoeapp.databinding.FragmentInstructionsBinding
 import com.sriyank.shoeapp.databinding.FragmentShoeDetailsBinding
 import com.sriyank.shoeapp.viewmodels.DataViewModel
 
@@ -31,10 +29,10 @@ class ShoeDetailsFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_details, container,false)
         binding.shoeListDetails= ShoeListData()
-        dataViewModel = ViewModelProvider(requireActivity()).get(DataViewModel::class.java)
-        binding.cancelBtn.setOnClickListener { view: View ->
-            Navigation.findNavController(view).navigate(R.id.action_shoeDetailsFragment_to_shoeListFragment)
-        }
+        dataViewModel = ViewModelProvider(requireActivity())[DataViewModel::class.java]
+        binding.cancelBtn.setOnClickListener {
+            findNavController().navigateUp()
+          }
         binding.saveBtn.setOnClickListener {
             saveDetail()
         }
@@ -54,6 +52,7 @@ class ShoeDetailsFragment : Fragment() {
 
              Toast.makeText(context,"Please Fill The Empty Fields",Toast.LENGTH_SHORT).show()
          }else{
+             Toast.makeText(context,"Saved",Toast.LENGTH_SHORT).show()
              dataViewModel.onSave(shoeName, shoeSize, shoeCompany, shoeDescription)
              findNavController().navigate(R.id.action_shoeDetailsFragment_to_shoeListFragment)
          }

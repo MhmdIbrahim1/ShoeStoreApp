@@ -3,14 +3,11 @@ package com.sriyank.shoeapp.UI
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.activity.addCallback
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.sriyank.shoeapp.R
 import com.sriyank.shoeapp.data.ShoeListData
 import com.sriyank.shoeapp.databinding.FragmentShoeListBinding
