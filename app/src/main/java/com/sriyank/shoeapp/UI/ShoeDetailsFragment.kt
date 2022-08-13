@@ -19,7 +19,7 @@ import com.sriyank.shoeapp.viewmodels.DataViewModel
 
 class ShoeDetailsFragment : Fragment() {
     private lateinit var binding: FragmentShoeDetailsBinding
-     lateinit var dataViewModel :DataViewModel
+     private lateinit var dataViewModel :DataViewModel
 
 
 
@@ -35,7 +35,7 @@ class ShoeDetailsFragment : Fragment() {
         binding.cancelBtn.setOnClickListener { view: View ->
             Navigation.findNavController(view).navigate(R.id.action_shoeDetailsFragment_to_shoeListFragment)
         }
-        binding.saveBtn.setOnClickListener { view: View ->
+        binding.saveBtn.setOnClickListener {
             saveDetail()
         }
         return binding.root
@@ -43,14 +43,22 @@ class ShoeDetailsFragment : Fragment() {
     }
 
 
-     fun saveDetail() {
+     private fun saveDetail() {
 
         val bindingData = binding.shoeListDetails
         val shoeName = bindingData?.shoeName.toString()
         val shoeCompany = bindingData?.shoeCompany.toString()
         val shoeDescription = bindingData?.shoeDescription.toString()
         val shoeSize = bindingData?.shoeSize.toString()
-         dataViewModel.onSave(shoeName, shoeSize, shoeCompany, shoeDescription)
-         findNavController().navigate(R.id.action_shoeDetailsFragment_to_shoeListFragment)
+         if (shoeName.isEmpty()|| shoeSize.isEmpty()|| shoeCompany.isEmpty()|| shoeDescription.isEmpty()){
+
+             Toast.makeText(context,"Please Fill The Empty Fields",Toast.LENGTH_SHORT).show()
+         }else{
+             dataViewModel.onSave(shoeName, shoeSize, shoeCompany, shoeDescription)
+             findNavController().navigate(R.id.action_shoeDetailsFragment_to_shoeListFragment)
+         }
+
+
+
     }
 }
