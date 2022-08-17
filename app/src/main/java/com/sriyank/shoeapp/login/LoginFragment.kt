@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.sriyank.shoeapp.R
 import com.sriyank.shoeapp.databinding.FragmentLoginBinding
@@ -29,8 +30,12 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.loginBtn.setOnClickListener {
-           val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
-           findNavController().navigate(action)
+          if (userName.text.isNotEmpty()&& Password.text.isNotEmpty()) {
+              val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
+              findNavController().navigate(action)
+          }else{
+              Toast.makeText(context,"error",Toast.LENGTH_SHORT).show()
+          }
         }
         binding.regBtn.setOnClickListener{
             val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()

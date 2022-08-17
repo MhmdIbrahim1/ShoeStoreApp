@@ -41,7 +41,8 @@
         app:layout_constraintVertical_bias="0.939"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="SpeakableTextPresentCheck"
-        tools:visibility="visible" />
+        tools:visibility="visible"
+        android:contentDescription="@string/todo_x" />
 
 
 

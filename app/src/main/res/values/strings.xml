@@ -23,4 +23,5 @@
     <string name="shoe_size_text">Shoe size</string>
     <string name="shoe_company_text">Shoe Company</string>
     <string name="shoe_description_text">Shoe Description</string>
+    <string name="todo_x">TODO</string>
 </resources>

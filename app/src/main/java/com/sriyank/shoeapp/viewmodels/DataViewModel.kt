@@ -5,9 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sriyank.shoeapp.data.ShoeListData
 
-class DataViewModel(): ViewModel() {
+class DataViewModel : ViewModel() {
 
-    private lateinit var shoeList:MutableList<ShoeListData>
     private var shoesList = mutableListOf<ShoeListData>()
 
     // create liveData to more encapsulation
@@ -16,16 +15,10 @@ class DataViewModel(): ViewModel() {
     val dataShoeList : LiveData<List<ShoeListData>>
             get() =_shoeListLiveData
 
-
-    fun updateShoeList(shoeListData: ShoeListData){
-        shoeList = mutableListOf<ShoeListData>()
-        _shoeListLiveData.value = shoesList
-    }
-
     fun onSave(shoeName: String ,shoeCompany: String ,shoeSize:String ,shoeDescription: String){
         val newItem =ShoeListData(shoeName,shoeCompany,shoeSize,shoeDescription)
-        newItem.let {item ->
-            shoesList.add(item)
+        newItem.let {
+            shoesList.add(it)
             _shoeListLiveData.value = shoesList
         }
     }

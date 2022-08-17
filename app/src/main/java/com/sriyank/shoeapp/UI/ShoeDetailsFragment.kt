@@ -15,8 +15,8 @@ import com.sriyank.shoeapp.databinding.FragmentShoeDetailsBinding
 import com.sriyank.shoeapp.viewmodels.DataViewModel
 
 
-class ShoeDetailsFragment : Fragment() {
-    private lateinit var binding: FragmentShoeDetailsBinding
+class ShoeDetailsFragment : Fragment(){
+     private lateinit var binding: FragmentShoeDetailsBinding
      private lateinit var dataViewModel :DataViewModel
 
 
@@ -56,8 +56,5 @@ class ShoeDetailsFragment : Fragment() {
              dataViewModel.onSave(shoeName, shoeSize, shoeCompany, shoeDescription)
              findNavController().navigate(R.id.action_shoeDetailsFragment_to_shoeListFragment)
          }
-
-
-
     }
 }

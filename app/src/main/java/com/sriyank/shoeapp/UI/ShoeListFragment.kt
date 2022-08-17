@@ -2,9 +2,11 @@ package com.sriyank.shoeapp.UI
 
 import android.os.Bundle
 import android.view.*
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -13,6 +15,7 @@ import com.sriyank.shoeapp.data.ShoeListData
 import com.sriyank.shoeapp.databinding.FragmentShoeListBinding
 import com.sriyank.shoeapp.databinding.ListViewBinding
 import com.sriyank.shoeapp.viewmodels.DataViewModel
+//import kotlinx.android.synthetic.main.list_view.*
 
 class ShoeListFragment : Fragment() {
 private lateinit var binding: FragmentShoeListBinding
@@ -24,21 +27,35 @@ private lateinit var binding: FragmentShoeListBinding
     ): View{
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_shoe_list,container,false)
-        val viewModel = ViewModelProvider(requireActivity()).get(DataViewModel::class.java)
-        setHasOptionsMenu(true)
-        viewModel.dataShoeList.observe(viewLifecycleOwner,Observer{item ->
+        val viewModel = ViewModelProvider(requireActivity())[DataViewModel::class.java]
+        viewModel.dataShoeList.observe(viewLifecycleOwner) { item ->
             shoeListView(item)
-        })
+        }
 
-    binding.lifecycleOwner =viewLifecycleOwner
-    binding.AddNewShoe.setOnClickListener{
+     binding.lifecycleOwner =viewLifecycleOwner
+     binding.AddNewShoe.setOnClickListener{
         view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_shoeListFragment_to_shoeDetailsFragment) }
 
     }
     return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        // The usage of an interface lets you inject your own implementation
+        val menuHost: MenuHost = requireActivity()
 
+        menuHost.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                // Add menu items here
+                menuInflater.inflate(R.menu.logout_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment())
+                return true
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+    }
 
 //create the shoe list view
     private fun shoeListView(item: List<ShoeListData>){
@@ -46,6 +63,7 @@ private lateinit var binding: FragmentShoeListBinding
         item.forEach{
 
             val bindingView = ListViewBinding.inflate(LayoutInflater.from(requireContext()), binding.shoeListLinearLayout, false)
+
             with(bindingView){
                 shoeCompany.text = it.shoeCompany
                 shoeDescription.text = it.shoeDescription
@@ -53,17 +71,8 @@ private lateinit var binding: FragmentShoeListBinding
                 shoeSize.text = it.shoeSize
             }
             binding.shoeListLinearLayout.addView(bindingView.root)
+
         }
     }
 
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.logout_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment())
-        return super.onOptionsItemSelected(item)
-    }
 }
