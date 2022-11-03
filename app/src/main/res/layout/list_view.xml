@@ -9,98 +9,159 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/indexLinear"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp">
 
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/row_cardView"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:orientation="vertical"
-            android:padding="8dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/lightMediumGray"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" >
 
-            <TextView
-                android:id="@+id/shoeName_text"
-                android:text="@string/shoe_name"
-                android:textColor="@color/purple_500"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
 
-            <TextView
-                android:id="@+id/shoeSize_text"
-                android:text="@string/shoe_size_text"
-                android:textColor="@color/purple_500"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="210dp"
+                    android:layout_height="267dp"
+                    android:contentDescription="@string/image_of_shoe"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-            <TextView
-                android:id="@+id/shoeCompany_text"
-                android:text="@string/shoe_company_text"
-                android:textColor="@color/purple_500"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/shoeName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="64dp"
+                    android:layout_marginEnd="12dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/courgette"
+                    android:maxLines="2"
+                    android:text=""
+                    android:textColor="@color/darker"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/shoeDescription_text"
-                android:text="@string/shoe_description_text"
-                android:textColor="@color/purple_500"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/shoeSize"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/courgette"
+                    android:text=""
+                    android:textColor="@color/darker"
+                    android:textSize="28sp"
+                    app:layout_constraintEnd_toEndOf="@+id/shoeName"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/shoeName"
+                    app:layout_constraintTop_toBottomOf="@+id/size_textViewText" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/shoeDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/courgette"
+                    android:maxLines="5"
+                    android:text=""
+                    android:textColor="@color/darker"
+                    android:textSize="28sp"
+                    app:layout_constraintEnd_toEndOf="@+id/shoeSize"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/shoeSize"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="216dp"
-            android:layout_marginTop="24dp"
-            android:orientation="vertical"
-            android:padding="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+                <TextView
+                    android:id="@+id/size_textViewText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="52dp"
+                    android:text="@string/company"
+                    android:textColor="@color/darker"
+                    android:textSize="25sp"
+                    app:layout_constraintEnd_toEndOf="@+id/shoeDescription"
+                    app:layout_constraintHorizontal_bias="0.083"
+                    app:layout_constraintStart_toStartOf="@+id/shoeName"
+                    app:layout_constraintTop_toTopOf="@+id/shoeName" />
 
-            <TextView
-                android:id="@+id/shoeName"
-                android:text=""
-                android:textColor="@color/purple_500"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/shoeCompany"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/courgette"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="@color/red"
+                    android:textSize="28sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/shoeDescription"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/textView6"
+                    app:layout_constraintTop_toBottomOf="@+id/textView6"
+                    app:layout_constraintVertical_bias="1.0" />
 
-            <TextView
-                android:id="@+id/shoeSize"
-                android:text=""
-                android:textColor="@color/purple_500"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/name_shoe"
+                    android:textColor="@color/darker"
+                    android:textSize="25sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/shoeCompany"
-                android:text=""
-                android:textColor="@color/purple_500"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/description"
+                    android:textColor="@color/darker"
+                    android:textSize="25sp"
+                    app:layout_constraintStart_toStartOf="@+id/shoeSize"
+                    app:layout_constraintTop_toBottomOf="@+id/shoeSize" />
 
-            <TextView
-                android:id="@+id/shoeDescription"
-                android:text=""
-                android:textColor="@color/purple_500"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/size"
+                    android:textColor="@color/darker"
+                    android:textSize="25sp"
+                    app:layout_constraintStart_toStartOf="@+id/shoeDescription"
+                    app:layout_constraintTop_toBottomOf="@+id/shoeDescription" />
 
-        </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+

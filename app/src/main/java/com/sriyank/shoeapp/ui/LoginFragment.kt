@@ -1,4 +1,4 @@
-package com.sriyank.shoeapp.login
+package com.sriyank.shoeapp.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.sriyank.shoeapp.R
 import com.sriyank.shoeapp.databinding.FragmentLoginBinding
 import kotlinx.android.synthetic.main.fragment_login.*
 
@@ -30,12 +29,8 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.loginBtn.setOnClickListener {
-          if (userName.text.isNotEmpty()&& Password.text.isNotEmpty()) {
-              val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
-              findNavController().navigate(action)
-          }else{
-              Toast.makeText(context,"error",Toast.LENGTH_SHORT).show()
-          }
+            val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
+            findNavController().navigate(action)
         }
         binding.regBtn.setOnClickListener{
             val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.sriyank.shoeapp.login.LoginFragment"
+        android:name="com.sriyank.shoeapp.ui.LoginFragment"
         android:label="Shoe Store"
         tools:layout="@layout/fragment_login">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.sriyank.shoeapp.welcome.WelcomeFragment"
+        android:name="com.sriyank.shoeapp.ui.WelcomeFragment"
         android:label="Shoe Store"
         tools:layout="@layout/fragment_welcome">
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/instructionsFragment"
-        android:name="com.sriyank.shoeapp.welcome.InstructionsFragment"
+        android:name="com.sriyank.shoeapp.ui.InstructionsFragment"
         android:label="Shoe Store"
         tools:layout="@layout/fragment_instructions">
         <action
@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/shoeListFragment"
-        android:name="com.sriyank.shoeapp.UI.ShoeListFragment"
+        android:name="com.sriyank.shoeapp.ui.ShoeListFragment"
         android:label="Shoe Store">
         <action
             android:id="@+id/action_shoeListFragment_to_shoeDetailsFragment"
@@ -66,7 +66,7 @@
     </fragment>
     <fragment
         android:id="@+id/shoeDetailsFragment"
-        android:name="com.sriyank.shoeapp.UI.ShoeDetailsFragment"
+        android:name="com.sriyank.shoeapp.ui.ShoeDetailsFragment"
         android:label="Add New Shoe">
         <action
             android:id="@+id/action_shoeDetailsFragment_to_shoeListFragment"

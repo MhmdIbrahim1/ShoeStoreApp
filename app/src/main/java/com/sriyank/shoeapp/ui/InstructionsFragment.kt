@@ -1,16 +1,12 @@
-package com.sriyank.shoeapp.welcome
+package com.sriyank.shoeapp.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
-import com.sriyank.shoeapp.R
 import com.sriyank.shoeapp.databinding.FragmentInstructionsBinding
-import com.sriyank.shoeapp.databinding.FragmentLoginBinding
-import com.sriyank.shoeapp.databinding.FragmentShoeListBinding
 
 
 class InstructionsFragment : Fragment() {

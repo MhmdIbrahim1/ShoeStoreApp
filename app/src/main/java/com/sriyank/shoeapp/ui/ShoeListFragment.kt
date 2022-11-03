@@ -1,39 +1,41 @@
-package com.sriyank.shoeapp.UI
+package com.sriyank.shoeapp.ui
 
 import android.os.Bundle
 import android.view.*
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
-import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.sriyank.shoeapp.R
 import com.sriyank.shoeapp.data.ShoeListData
+
 import com.sriyank.shoeapp.databinding.FragmentShoeListBinding
 import com.sriyank.shoeapp.databinding.ListViewBinding
 import com.sriyank.shoeapp.viewmodels.DataViewModel
-//import kotlinx.android.synthetic.main.list_view.*
+
 
 class ShoeListFragment : Fragment() {
-private lateinit var binding: FragmentShoeListBinding
-
+    private  var _binding: FragmentShoeListBinding? = null
+    private val binding get() = _binding!!
 
  override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View{
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_shoe_list,container,false)
+        _binding = FragmentShoeListBinding.inflate(inflater,container,false)
         val viewModel = ViewModelProvider(requireActivity())[DataViewModel::class.java]
+
         viewModel.dataShoeList.observe(viewLifecycleOwner) { item ->
             shoeListView(item)
         }
 
-     binding.lifecycleOwner =viewLifecycleOwner
-     binding.AddNewShoe.setOnClickListener{
+     binding.lifecycleOwner = viewLifecycleOwner
+     binding.addBtn.setOnClickListener{
         view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_shoeListFragment_to_shoeDetailsFragment) }
 
     }
@@ -69,10 +71,16 @@ private lateinit var binding: FragmentShoeListBinding
                 shoeDescription.text = it.shoeDescription
                 shoeName.text = it.shoeName
                 shoeSize.text = it.shoeSize
+                imageView3.setImageResource(it.images.random())
             }
             binding.shoeListLinearLayout.addView(bindingView.root)
 
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }
