@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.sriyank.shoeapp.data.ShoeListData
+import com.sriyank.shoeapp.data.model.ShoeListData
 
 class DataViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -16,7 +16,7 @@ class DataViewModel(application: Application) : AndroidViewModel(application) {
             get() =_shoeListLiveData
 
     fun onSave(shoeName: String ,shoeCompany: String ,shoeSize:String ,shoeDescription: String,images: List<Int>){
-        val newItem =ShoeListData(shoeName,shoeCompany,shoeSize,shoeDescription,images)
+        val newItem = ShoeListData(shoeName,shoeCompany,shoeSize,shoeDescription,images)
         newItem.let {
             shoesList.add(it)
             _shoeListLiveData.value = shoesList

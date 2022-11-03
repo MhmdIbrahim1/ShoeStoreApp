@@ -10,7 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.sriyank.shoeapp.R
-import com.sriyank.shoeapp.data.ShoeListData
+import com.sriyank.shoeapp.data.model.ShoeListData
 import com.sriyank.shoeapp.databinding.FragmentShoeDetailsBinding
 import com.sriyank.shoeapp.viewmodels.DataViewModel
 

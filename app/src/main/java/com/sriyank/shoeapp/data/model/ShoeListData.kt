@@ -1,4 +1,4 @@
-package com.sriyank.shoeapp.data
+package com.sriyank.shoeapp.data.model
 
 import com.sriyank.shoeapp.R
 

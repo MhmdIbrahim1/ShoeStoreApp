@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.*
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.sriyank.shoeapp.R
-import com.sriyank.shoeapp.data.ShoeListData
+import com.sriyank.shoeapp.data.model.ShoeListData
 
 import com.sriyank.shoeapp.databinding.FragmentShoeListBinding
 import com.sriyank.shoeapp.databinding.ListViewBinding
