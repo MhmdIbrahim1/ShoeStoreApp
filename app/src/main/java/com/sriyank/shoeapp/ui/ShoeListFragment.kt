@@ -15,6 +15,7 @@ import com.sriyank.shoeapp.data.ShoeListData
 
 import com.sriyank.shoeapp.databinding.FragmentShoeListBinding
 import com.sriyank.shoeapp.databinding.ListViewBinding
+import com.sriyank.shoeapp.util.hideKeyboard
 import com.sriyank.shoeapp.viewmodels.DataViewModel
 
 
@@ -39,7 +40,11 @@ class ShoeListFragment : Fragment() {
         view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_shoeListFragment_to_shoeDetailsFragment) }
 
     }
-    return binding.root
+
+     // Hide soft keyboard
+     hideKeyboard(requireActivity())
+
+     return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
